@@ -1,0 +1,109 @@
+Username: heyisula
+Password: testrun1
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: testrunsignup
+Password: 1234
+First Name: TestRun
+Last Name: Signup
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: testrunsignup
+Password: signuptest
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: LTestRun
+Password: 1234567890
+First Name: Last
+Last Name: TestRun
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: mnlassanaakash
+Password: mnasaikapanna
+First Name: Akash
+Last Name: Anushka
+Phone: 0771234567
+Email: mnlassanaakash@gmail.com
+
+Username: heyisula
+Password: delta12345
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+
+
+Username: anemedenathi
+Password: 098765432
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0123456789
+Email: lkjhgfdsoiuytrewq@gmail.com
+
+Username: heyisula
+Password: 1234
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: heyisula
+Password: heyisula
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: lasttestrun
+Password: 1234
+First Name: LastTest
+Last Name: Run
+Phone: 0987654321
+Email: trun@gmail.com
+
+Username: lasttest
+Password: 1234
+First Name: Last 
+Last Name: Test
+Phone: 0771234567
+Email: lasttest@gmail.com
+
+Username: heyisula
+Password: 1234
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: isula@gmail.com
+
+Username: psw
+Password: 1234
+First Name: Isula
+Last Name: Psw Test
+Phone: 0713303606
+Email: psw@gmail.com
+
+Username: heyisula
+Password: 1234
+Re-cehck Password: 1234
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: heyisula
+Password: 1234
+Re-cehck Password: 1234
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0987654321
+Email: isula@gmail.com
+
