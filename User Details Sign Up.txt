@@ -26,3 +26,45 @@ Last Name: TestRun
 Phone: 0713303606
 Email: hello.isuladissanayake@gmail.com
 
+Username: mnlassanaakash
+Password: mnasaikapanna
+First Name: Akash
+Last Name: Anushka
+Phone: 0771234567
+Email: mnlassanaakash@gmail.com
+
+Username: Username
+Password: Password
+First Name: First Name
+Last Name: Last Name
+Phone: Phone
+Email: Email
+
+Username: Username
+Password: Password
+First Name: First Name
+Last Name: Last Name
+Phone: Phone
+Email: Email
+
+Username: Username
+Password: Password
+First Name: First Name
+Last Name: Last Name
+Phone: Phone
+Email: Email
+
+Username: Username
+Password: Password
+First Name: First Name
+Last Name: Last Name
+Phone: Phone
+Email: Email
+
+Username: Username
+Password: Password
+First Name: First Name
+Last Name: Last Name
+Phone: Phone
+Email: Email
+

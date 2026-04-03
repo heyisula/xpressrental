@@ -252,6 +252,7 @@ public class Signup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateNewAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNewAccountActionPerformed
+        
         String fName= txtFirstName.getText();
         String lName=txtLastName.getText();
         String uName=txtUsername.getText();
