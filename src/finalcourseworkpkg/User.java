@@ -1,0 +1,63 @@
+package finalcourseworkpkg;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
+
+public class User {
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String email;
+    
+    public User(String username, String password, String firstName, String lastName, String phone, String email) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    
+    public void saveToFile(String filePath) {
+        try (FileWriter writer = new FileWriter(filePath, true)) {
+            writer.append("Username: " + username + "\n");
+            writer.append("Password: " + password + "\n");
+            writer.append("First Name: " + firstName + "\n");
+            writer.append("Last Name: " + lastName + "\n");
+            writer.append("Phone: " + phone + "\n");
+            writer.append("Email: " + email + "\n\n");
+
+            JOptionPane.showMessageDialog(null, "File saved successfully!");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error saving File: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+}
