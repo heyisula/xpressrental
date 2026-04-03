@@ -305,13 +305,19 @@ public class CostCalculationVehicle04 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please fill Booking Duration!!");
         }
         else{
-             txtFInalChargeForVehicle.setText(""+ VehicleBookingJeep.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
-             
-             //Saving to text
-             String bookingDuration = txtBookingDuration.getText();
-             Object fuelPass = cmbFuelPass.getSelectedItem();
-             double finalCharge = VehicleBookingJeep.calculateFinalCharge(bookingDuration, fuelPass);
-             saveToFile(bookingDuration, fuelPass.toString(), String.valueOf(finalCharge));
+            try {
+                    Integer.parseInt(txtBookingDuration.getText());
+                    txtFInalChargeForVehicle.setText(""+ VehicleBookingJeep.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
+
+                    //Saving to text
+                    String bookingDuration = txtBookingDuration.getText();
+                    Object fuelPass = cmbFuelPass.getSelectedItem();
+                    double finalCharge = VehicleBookingJeep.calculateFinalCharge(bookingDuration, fuelPass);
+                    saveToFile(bookingDuration, fuelPass.toString(), String.valueOf(finalCharge));
+            }
+            catch (Exception Obj) {
+                JOptionPane.showMessageDialog(rootPane,  "Booking Duration must be a number. Strings are not allowed." , "Error",  JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnCalculateActionPerformed
     public static class VehicleBookingJeep {
@@ -325,20 +331,6 @@ public class CostCalculationVehicle04 extends javax.swing.JFrame {
             this.bookingDuration = Integer.parseInt(bookingDuration);
             this.FuelPassIncluded = "Include".equals(fuelPass);
         }
-
-        // Calculating the final charge
-        public static double calculateFinalCharge(String bookingDuration, Object fuelPass) {
-            //Jeep's charge
-            int jeepCharge = 1800;
-            boolean isFuelPassIncluded = "Include".equals(fuelPass);
-            
-            VehicleBookingJeep booking = new VehicleBookingJeep(bookingDuration, fuelPass.toString());
-            double fuelPassCharge = booking.getFuelPassCharge();
-            double bookingDiscount = booking.getBookingDiscount();
-
-            return ((jeepCharge * booking.getBookingDuration()) + fuelPassCharge) * bookingDiscount;
-        }
-
         // Using a Getter for  get booking duration
         public int getBookingDuration() {
             return bookingDuration;
@@ -358,6 +350,19 @@ public class CostCalculationVehicle04 extends javax.swing.JFrame {
         // Using a Getter for fuel pass to check weather include or exclude
         public double getFuelPassCharge() {
             return FuelPassIncluded ? 1500 : 0;
+        }
+        
+        // Calculating the final charge
+        public static double calculateFinalCharge(String bookingDuration, Object fuelPass) {
+            //Jeep's charge
+            int jeepCharge = 1800;
+            boolean isFuelPassIncluded = "Include".equals(fuelPass);
+            
+            VehicleBookingJeep booking = new VehicleBookingJeep(bookingDuration, fuelPass.toString());
+            double fuelPassCharge = booking.getFuelPassCharge();
+            double bookingDiscount = booking.getBookingDiscount();
+
+            return ((jeepCharge * booking.getBookingDuration()) + fuelPassCharge) * bookingDiscount;
         }
     }
     

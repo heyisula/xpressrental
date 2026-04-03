@@ -309,20 +309,26 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         }
         else
         {
-             txtFInalChargeForVehicle.setText(""+VehicleBookingBike.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
+            try {
+                    Integer.parseInt(txtBookingDuration.getText());
+                    txtFInalChargeForVehicle.setText(""+VehicleBookingBike.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
              
-             //Saving to text
-             String bookingDuration = txtBookingDuration.getText();
-             Object fuelPass = cmbFuelPass.getSelectedItem();
-             double finalCharge = VehicleBookingBike.calculateFinalCharge(bookingDuration, fuelPass);
-             saveToFile(bookingDuration, fuelPass.toString(), String.valueOf(finalCharge));
+                    //Saving to text
+                    String bookingDuration = txtBookingDuration.getText();
+                    Object fuelPass = cmbFuelPass.getSelectedItem();
+                    double finalCharge = VehicleBookingBike.calculateFinalCharge(bookingDuration, fuelPass);
+                    saveToFile(bookingDuration, fuelPass.toString(), String.valueOf(finalCharge));
+            }
+            catch (Exception Obj) {
+                JOptionPane.showMessageDialog(rootPane, "Booking Duration must be a number. Strings are not allowed." , "Error",  JOptionPane.ERROR_MESSAGE);
+            }
         } 
         
     }//GEN-LAST:event_btnCalculateActionPerformed
     public static class VehicleBookingBike {
 
         private static double calculateDiscount(int parseInt, String fuelPass) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            throw new UnsupportedOperationException("Not supported yet."); 
         }
         
         //Using private fields to encapsulate the data
@@ -334,20 +340,7 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
             this.bookingDuration = Integer.parseInt(bookingDuration);
             this.FuelPassIncluded = "Include".equals(fuelPass);
         }
-
-        // Calculating the final charge
-        public static double calculateFinalCharge(String bookingDuration, Object fuelPass) {
-            //Bike's charge
-            int bikeCharge = 1000;
-            boolean isFuelPassIncluded = "Include".equals(fuelPass);
-            
-            VehicleBookingBike booking = new VehicleBookingBike(bookingDuration, fuelPass.toString());
-            double fuelPassCharge = booking.getFuelPassCharge();
-            double bookingDiscount = booking.getBookingDiscount();
-
-            return ((bikeCharge * booking.getBookingDuration()) + fuelPassCharge) * bookingDiscount;
-        }
-
+        
         // Using a Getter for  get booking duration
         public int getBookingDuration() {
             return bookingDuration;
@@ -366,8 +359,21 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
 
         // Using a Getter for fuel pass to check weather include or exclude
         public double getFuelPassCharge() {
-            return FuelPassIncluded ? 1500 : 0;
+            return FuelPassIncluded ? 1500 : 0; //Using turnary operator to act like if
         }
+        
+        // Calculating the final charge
+        public static double calculateFinalCharge(String bookingDuration, Object fuelPass) {
+            //Bike's charge
+            int bikeCharge = 1000;
+            boolean isFuelPassIncluded = "Include".equals(fuelPass);
+            
+            VehicleBookingBike booking = new VehicleBookingBike(bookingDuration, fuelPass.toString());
+            double fuelPassCharge = booking.getFuelPassCharge();
+            double bookingDiscount = booking.getBookingDiscount();
+
+            return ((bikeCharge * booking.getBookingDuration()) + fuelPassCharge) * bookingDiscount;
+        } 
     }
     
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

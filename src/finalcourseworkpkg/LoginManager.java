@@ -31,10 +31,12 @@ public class LoginManager {
         try (FileWriter writer = new FileWriter(filePath, true)) {
             writer.append("Username: " + user.getUsername() + "\n");
             writer.append("Password: " + user.getPassword() + "\n");
+            writer.append("Re-cehck Password: " + user.getpasswordRecheck() + "\n");
             writer.append("First Name: " + user.getFirstName() + "\n");
             writer.append("Last Name: " + user.getLastName() + "\n");
             writer.append("Phone: " + user.getPhone() + "\n");
             writer.append("Email: " + user.getEmail() + "\n\n");
+            
 
             JOptionPane.showMessageDialog(null, "User saved successfully!");
         } catch (IOException e) {
@@ -68,5 +70,4 @@ public class LoginManager {
     public void logout() {
         isLoggedIn = false;
     }
-    
 }
