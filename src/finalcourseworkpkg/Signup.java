@@ -24,6 +24,7 @@ public class Signup extends javax.swing.JFrame {
      */
     public Signup() {
         initComponents();
+        btnCreateNewAccount.setEnabled(false);
     }
 
     /**
@@ -252,42 +253,48 @@ public class Signup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateNewAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNewAccountActionPerformed
+        try {
+            String fName= txtFirstName.getText();
+            String lName=txtLastName.getText();
+            String uName=txtUsername.getText();
+            String pNumber= txtPhone.getText();
+            String email=txtEmail.getText();
+            String pw=txtPassword.getText();
         
-        String fName= txtFirstName.getText();
-        String lName=txtLastName.getText();
-        String uName=txtUsername.getText();
-        String pNumber= txtPhone.getText();
-        String email=txtEmail.getText();
-        String pw=txtPassword.getText();
-        
-        //cheacking inputs
-        if (fName.isEmpty() || lName.isEmpty() || uName.isEmpty() || pNumber.isEmpty() || email.isEmpty() || pw.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "All fields are required!", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
+            //cheacking inputs
+            if (fName.isEmpty() || lName.isEmpty() || uName.isEmpty() || pNumber.isEmpty() || email.isEmpty() || pw.isEmpty()) {
+                throw new IllegalArgumentException("All fields are required!");    
+            }
+            else{
+                if ("admin".equals(uName)) {
+                    throw new IllegalArgumentException("Admin account already exist!");
+                }
+                if (!pNumber.matches("\\d{10}")) { 
+                    throw new IllegalArgumentException("Invalid phone number. Please enter a 10-digit number.");
+                }
+                if (!email.contains("@") || !email.contains(".")) {
+                    throw new IllegalArgumentException("Invalid email address. Please enter a valid email.");
+                }
+            }
+            
+            //Sending instance to login manager
+            LoginManager.getInstance().login(uName, pw);
+
+            //adding new user
+            User newUser = new User(uName, pw, fName, lName, pNumber, email);
+            LoginManager.getInstance().addUser(newUser);
+
+            //Seting login manager after signup
+            LoginManager.getInstance().isLoggedIn = true;
+
+            JOptionPane.showMessageDialog(this, "Account created successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            HomePageLoggedIn obj01 = new HomePageLoggedIn();
+            obj01.setVisible(true);
+            dispose();
         }
-        if ("admin".equals(uName) && "1234".equals(pw)) {
-            JOptionPane.showMessageDialog(this, "Admin account already exists.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
         }
-        if (LoginManager.getInstance().isUserExists(uName)) {
-            JOptionPane.showMessageDialog(this, "Username already exists. Please choose another username.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        //Sending instance to login manager
-        LoginManager.getInstance().login(uName, pw);
-        
-        //adding new user
-        User newUser = new User(uName, pw, fName, lName, pNumber, email);
-        LoginManager.getInstance().addUser(newUser);
-        
-        //Seting login manager after signup
-        LoginManager.getInstance().isLoggedIn = true;
-        
-        JOptionPane.showMessageDialog(this, "Account created successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-        HomePageLoggedIn obj01 = new HomePageLoggedIn();
-        obj01.setVisible(true);
-        dispose();
     }//GEN-LAST:event_btnCreateNewAccountActionPerformed
 
     private void btnHomePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomePageActionPerformed
@@ -329,6 +336,7 @@ public class Signup extends javax.swing.JFrame {
             txtFirstName.setText("");
             _firstNameCleared = true;
         }
+        btnCreateNewAccount.setEnabled(true);
     }//GEN-LAST:event_txtFirstNameMouseClicked
 
     private void txtLastNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLastNameMouseClicked

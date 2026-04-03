@@ -33,38 +33,12 @@ Last Name: Anushka
 Phone: 0771234567
 Email: mnlassanaakash@gmail.com
 
-Username: Username
-Password: Password
-First Name: First Name
-Last Name: Last Name
-Phone: Phone
-Email: Email
+Username: heyisula
+Password: delta12345
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
 
-Username: Username
-Password: Password
-First Name: First Name
-Last Name: Last Name
-Phone: Phone
-Email: Email
 
-Username: Username
-Password: Password
-First Name: First Name
-Last Name: Last Name
-Phone: Phone
-Email: Email
-
-Username: Username
-Password: Password
-First Name: First Name
-Last Name: Last Name
-Phone: Phone
-Email: Email
-
-Username: Username
-Password: Password
-First Name: First Name
-Last Name: Last Name
-Phone: Phone
-Email: Email
 
