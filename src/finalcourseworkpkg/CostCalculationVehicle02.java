@@ -4,6 +4,8 @@
  */
 package finalcourseworkpkg;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -313,6 +315,12 @@ public class CostCalculationVehicle02 extends javax.swing.JFrame {
         }
         else{
              txtFInalChargeForVehicle.setText(""+ VehicleBookingCar.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
+             
+             //Saving to text
+             String bookingDuration = txtBookingDuration.getText();
+             Object fuelPass = cmbFuelPass.getSelectedItem();
+             double finalCharge = VehicleBookingCar.calculateFinalCharge(bookingDuration, fuelPass);
+             saveToFile(bookingDuration, fuelPass.toString(), String.valueOf(finalCharge));
         }
     }//GEN-LAST:event_btnCalculateActionPerformed
     
@@ -375,7 +383,18 @@ public class CostCalculationVehicle02 extends javax.swing.JFrame {
         obj01.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
+    private void saveToFile(String bookingDuration, String fuelPass, String finalCharge) {
+        try (FileWriter writer = new FileWriter("booking_info_Car.txt", true)) {
+            writer.write("Booking Duration: " + bookingDuration + "\n");
+            writer.write("Fuel Pass: " + fuelPass + "\n");
+            writer.write("Final Charge: " + finalCharge + "\n\n");
 
+            JOptionPane.showMessageDialog(rootPane, "Information saved to booking_info_Car.txt!");
+        } 
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(rootPane, "Error saving file: " + e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */

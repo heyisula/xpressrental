@@ -4,6 +4,8 @@
  */
 package finalcourseworkpkg;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -308,10 +310,20 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         else
         {
              txtFInalChargeForVehicle.setText(""+VehicleBookingBike.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
+             
+             //Saving to text
+             String bookingDuration = txtBookingDuration.getText();
+             Object fuelPass = cmbFuelPass.getSelectedItem();
+             double finalCharge = VehicleBookingBike.calculateFinalCharge(bookingDuration, fuelPass);
+             saveToFile(bookingDuration, fuelPass.toString(), String.valueOf(finalCharge));
         } 
         
     }//GEN-LAST:event_btnCalculateActionPerformed
     public static class VehicleBookingBike {
+
+        private static double calculateDiscount(int parseInt, String fuelPass) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
         
         //Using private fields to encapsulate the data
         private int bookingDuration;
@@ -363,6 +375,20 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         obj01.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+    
+    private void saveToFile(String bookingDuration, String fuelPass, String finalCharge) {
+    try (FileWriter writer = new FileWriter("booking_info_Bike.txt", true)) {
+        writer.write("Booking Duration: " + bookingDuration + "\n");
+        writer.write("Fuel Pass: " + fuelPass + "\n");
+        writer.write("Final Charge: " + finalCharge + "\n\n");
+
+        JOptionPane.showMessageDialog(rootPane, "Information saved to booking_info_Bike.txt!");
+    } 
+    catch (IOException e) {
+        JOptionPane.showMessageDialog(rootPane, "Error saving file: " + e.getMessage());
+    }
+}
+
     
     /**
      * @param args the command line arguments

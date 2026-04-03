@@ -280,6 +280,9 @@ public class Signup extends javax.swing.JFrame {
         User newUser = new User(uName, pw, fName, lName, pNumber, email);
         LoginManager.getInstance().addUser(newUser);
         
+        //Seting login manager after signup
+        LoginManager.getInstance().isLoggedIn = true;
+        
         JOptionPane.showMessageDialog(this, "Account created successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         HomePageLoggedIn obj01 = new HomePageLoggedIn();
         obj01.setVisible(true);
@@ -388,26 +391,7 @@ public class Signup extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } 
-        catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-        catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-        catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-        catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Signup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

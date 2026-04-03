@@ -1,28 +1,28 @@
 Username: heyisula
-Password: 12345678
+Password: testrun1
 First Name: Isula
 Last Name: Dissanayake
 Phone: 0713303606
 Email: hello.isuladissanayake@gmail.com
 
-Username: heyisula
-Password: thisistestrun
+Username: testrunsignup
+Password: 1234
+First Name: TestRun
+Last Name: Signup
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: testrunsignup
+Password: signuptest
 First Name: Isula
 Last Name: Dissanayake
 Phone: 0713303606
 Email: hello.isuladissanayake@gmail.com
 
-Username: testrun
+Username: LTestRun
 Password: 1234567890
-First Name: Test
-Last Name: Run
-Phone: 0987654321
-Email: testrun@gmail.com
-
-Username: testrun02
-Password: 0987654321
-First Name: Test
-Last Name: Run
-Phone: 1234567890
-Email: testrun02@gmail.com
+First Name: Last
+Last Name: TestRun
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
 
