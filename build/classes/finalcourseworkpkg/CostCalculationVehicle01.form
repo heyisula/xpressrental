@@ -64,7 +64,7 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <EmptySpace pref="9" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -141,10 +141,15 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblSelectedVehicleName" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="lblSelectedVehicleInfo" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblSelectedVehicleImg" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblSelectedVehicleInfoRange01" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblSelectedVehicleInfoRange02" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="lblSelectedVehicleInfo1Discount" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
@@ -154,20 +159,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblSelectedVehicleName" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblSelectedVehicleImg" min="-2" pref="188" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblSelectedVehicleInfo1Discount" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblSelectedVehicleInfo" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblSelectedVehicleInfoRange01" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="lblSelectedVehicleInfoRange02" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -189,7 +199,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnBookNow" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="btnCalculate" min="-2" pref="134" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -240,7 +250,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblnote" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnBookNow" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCalculate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -305,12 +315,12 @@
                 <Property name="text" type="java.lang.String" value="One Last Step, Get Ready to Book your Vehicle !"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnBookNow">
+            <Component class="javax.swing.JButton" name="btnCalculate">
               <Properties>
-                <Property name="text" type="java.lang.String" value="BookNow"/>
+                <Property name="text" type="java.lang.String" value="Calculate"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBookNowActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalculateActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
@@ -347,9 +357,28 @@
             <Property name="text" type="java.lang.String" value="Bike"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSelectedVehicleInfo">
+        <Component class="javax.swing.JLabel" name="lblSelectedVehicleInfoRange01">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Price for One Day "/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="More than 10 - 8%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSelectedVehicleInfoRange02">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="More than 20 - 15%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSelectedVehicleInfo1Discount">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tw Cen MT" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Discounts:"/>
           </Properties>
         </Component>
       </SubComponents>

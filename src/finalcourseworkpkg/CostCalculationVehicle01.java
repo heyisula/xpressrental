@@ -4,12 +4,14 @@
  */
 package finalcourseworkpkg;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author isula
  */
 public class CostCalculationVehicle01 extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form CostCalculationVehicle01
      */
@@ -39,12 +41,14 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         txtFInalChargeForVehicle = new javax.swing.JTextField();
         cmbFuelPass = new javax.swing.JComboBox<>();
         lblnote = new javax.swing.JLabel();
-        btnBookNow = new javax.swing.JButton();
+        btnCalculate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblSelectedVehicleImg = new javax.swing.JLabel();
         lblSelectedVehicleName = new javax.swing.JLabel();
-        lblSelectedVehicleInfo = new javax.swing.JLabel();
+        lblSelectedVehicleInfoRange01 = new javax.swing.JLabel();
+        lblSelectedVehicleInfoRange02 = new javax.swing.JLabel();
+        lblSelectedVehicleInfo1Discount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,10 +115,10 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         lblnote.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         lblnote.setText("One Last Step, Get Ready to Book your Vehicle !");
 
-        btnBookNow.setText("BookNow");
-        btnBookNow.addActionListener(new java.awt.event.ActionListener() {
+        btnCalculate.setText("Calculate");
+        btnCalculate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookNowActionPerformed(evt);
+                btnCalculateActionPerformed(evt);
             }
         });
 
@@ -127,7 +131,7 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBookNow, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -168,7 +172,7 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblnote, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBookNow)
+                .addComponent(btnCalculate)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -185,7 +189,14 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         lblSelectedVehicleName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblSelectedVehicleName.setText("Bike");
 
-        lblSelectedVehicleInfo.setText("Price for One Day ");
+        lblSelectedVehicleInfoRange01.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSelectedVehicleInfoRange01.setText("More than 10 - 8%");
+
+        lblSelectedVehicleInfoRange02.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSelectedVehicleInfoRange02.setText("More than 20 - 15%");
+
+        lblSelectedVehicleInfo1Discount.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        lblSelectedVehicleInfo1Discount.setText("Discounts:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -199,9 +210,13 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
                         .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblSelectedVehicleName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblSelectedVehicleInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblSelectedVehicleImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblSelectedVehicleImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblSelectedVehicleInfoRange01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSelectedVehicleInfoRange02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblSelectedVehicleInfo1Discount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -209,17 +224,21 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSelectedVehicleName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnBack))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblSelectedVehicleImg, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSelectedVehicleInfo1Discount, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSelectedVehicleInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSelectedVehicleInfoRange01, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSelectedVehicleInfoRange02, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -257,7 +276,7 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
                         .addComponent(jLabel5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -281,16 +300,75 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbFuelPassActionPerformed
 
-    private void btnBookNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookNowActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBookNowActionPerformed
+    private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
+        if(txtBookingDuration.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Please fill Booking Duration!!");
+        }
+        else
+        {
+             txtFInalChargeForVehicle.setText(""+getInputs());
+        } 
+        
+    }//GEN-LAST:event_btnCalculateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         VehicleSelection obj01 = new VehicleSelection();
         obj01.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackActionPerformed
-
+    
+    public double getInputs(){
+        double bookingDuration =0, ChargeForVehicle=0,BookingDiscount =0,FuelPassCharge=0,BikeCharge=1000;
+        String FuelPass = (String) cmbFuelPass.getSelectedItem();
+        
+        try {
+            bookingDuration = Double.parseDouble(txtBookingDuration.getText());
+            if (bookingDuration <= 0) {
+                JOptionPane.showMessageDialog(rootPane, "Please enter a positive number of Days");
+                return 0;
+            }
+        } 
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Please enter a valid number for booking duration");
+            return 0;
+        }
+        
+        
+        //Calculation
+        if(bookingDuration <= 10 && cmbFuelPass.getSelectedItem().equals("Include")){
+            FuelPassCharge = 1500;
+            BookingDiscount = 1;
+        }
+        else if(bookingDuration <= 10 && cmbFuelPass.getSelectedItem().equals("Exclude")){
+            FuelPassCharge = 0;
+            BookingDiscount = 1;
+        }
+        else if (bookingDuration > 10 &&  bookingDuration <= 20 && cmbFuelPass.getSelectedItem().equals("Include")) {
+            FuelPassCharge = 1500;
+            BookingDiscount = 0.92;
+        }
+        else if(bookingDuration > 10 &&  bookingDuration <= 20 && cmbFuelPass.getSelectedItem().equals("Exclude")){
+            FuelPassCharge = 0;
+            BookingDiscount = 0.92;
+        }
+        else{
+            if (cmbFuelPass.getSelectedItem().equals("Include")){
+                FuelPassCharge = 1500;
+                BookingDiscount = 0.85;
+            }
+            else{
+                FuelPassCharge = 0;
+                BookingDiscount = 0.85;
+            }
+            
+        }
+        
+        
+        
+        ChargeForVehicle = ((BikeCharge*bookingDuration) + FuelPassCharge) * BookingDiscount;
+        return ChargeForVehicle;
+    }
     /**
      * @param args the command line arguments
      */
@@ -328,7 +406,7 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnBookNow;
+    private javax.swing.JButton btnCalculate;
     private javax.swing.JButton btnHome;
     private javax.swing.JComboBox<String> cmbFuelPass;
     private javax.swing.JLabel jLabel1;
@@ -341,7 +419,9 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
     private javax.swing.JLabel lblFuelPass;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblSelectedVehicleImg;
-    private javax.swing.JLabel lblSelectedVehicleInfo;
+    private javax.swing.JLabel lblSelectedVehicleInfo1Discount;
+    private javax.swing.JLabel lblSelectedVehicleInfoRange01;
+    private javax.swing.JLabel lblSelectedVehicleInfoRange02;
     private javax.swing.JLabel lblSelectedVehicleName;
     private javax.swing.JLabel lblnote;
     private javax.swing.JTextField txtBookingDuration;
