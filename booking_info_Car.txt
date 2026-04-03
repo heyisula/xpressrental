@@ -1,4 +1,0 @@
-Booking Duration: 1
-Fuel Pass: Include
-Final Charge: 3500.0
-
