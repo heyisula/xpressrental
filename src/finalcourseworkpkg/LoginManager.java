@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class LoginManager {
     private static LoginManager instance;
-    private boolean isLoggedIn = false;
+    private boolean isLoggedIn = true;
     private Map<String, User> users;
     
     private LoginManager() {
@@ -40,6 +40,7 @@ public class LoginManager {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error saving User: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+        login(user.getUsername(), user.getPassword());
     }
     public boolean isUserExists(String username) {
         return users.containsKey(username);

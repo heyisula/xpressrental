@@ -303,60 +303,56 @@ public class CostCalculationVehicle03 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please fill Booking Duration!!");
         }
         else{
-             txtFInalChargeForVehicle.setText(""+getInputs());
+             txtFInalChargeForVehicle.setText(""+ VehicleBookingVan.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
         }
     }//GEN-LAST:event_btnCalculateActionPerformed
-    public double getInputs(){
-        double bookingDuration =0, ChargeForVehicle=0,BookingDiscount =0,FuelPassCharge=0,VanCharge=2500;
-        String FuelPass = (String) cmbFuelPass.getSelectedItem();
+    public static class VehicleBookingVan {
         
-        try {
-            bookingDuration = Double.parseDouble(txtBookingDuration.getText());
-            if (bookingDuration <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Please enter a positive number of Days");
-                return 0;
-            }
-        } 
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "Please enter a valid number for booking duration");
-            return 0;
+        //Using private fields to encapsulate the data
+        private int bookingDuration;
+        private boolean FuelPassIncluded;
+
+        // Constructor for data inputs
+        public VehicleBookingVan(String bookingDuration, String fuelPass) {
+            this.bookingDuration = Integer.parseInt(bookingDuration);
+            this.FuelPassIncluded = "Include".equals(fuelPass);
         }
-        
-        
-        //Calculation
-        if(bookingDuration <= 3 && cmbFuelPass.getSelectedItem().equals("Include")){
-            FuelPassCharge = 1500;
-            BookingDiscount = 1;
-        }
-        else if(bookingDuration <= 3 && cmbFuelPass.getSelectedItem().equals("Exclude")){
-            FuelPassCharge = 0;
-            BookingDiscount = 1;
-        }
-        else if (bookingDuration > 3 &&  bookingDuration <= 5 && cmbFuelPass.getSelectedItem().equals("Include")) {
-            FuelPassCharge = 1500;
-            BookingDiscount = 0.95;
-        }
-        else if(bookingDuration > 3 &&  bookingDuration <= 5 && cmbFuelPass.getSelectedItem().equals("Exclude")){
-            FuelPassCharge = 0;
-            BookingDiscount = 0.95;
-        }
-        else{
-            if (cmbFuelPass.getSelectedItem().equals("Include")){
-                FuelPassCharge = 1500;
-                BookingDiscount = 0.90;
-            }
-            else{
-                FuelPassCharge = 0;
-                BookingDiscount = 0.90;
-            }
+
+        // Calculating the final charge
+        public static double calculateFinalCharge(String bookingDuration, Object fuelPass) {
+            //Van's charge
+            int vanCharge = 2500;
+            boolean isFuelPassIncluded = "Include".equals(fuelPass);
             
+            VehicleBookingVan booking = new VehicleBookingVan(bookingDuration, fuelPass.toString());
+            double fuelPassCharge = booking.getFuelPassCharge();
+            double bookingDiscount = booking.getBookingDiscount();
+
+            return ((vanCharge * booking.getBookingDuration()) + fuelPassCharge) * bookingDiscount;
         }
-        
-        
-        
-        ChargeForVehicle = ((VanCharge*bookingDuration) + FuelPassCharge) * BookingDiscount;
-        return ChargeForVehicle;
+
+        // Using a Getter for  get booking duration
+        public int getBookingDuration() {
+            return bookingDuration;
+        }
+
+        // Using a Getter for calculate discount by using the duration
+        public double getBookingDiscount() {
+            if (bookingDuration <= 3) {
+                return 1.0; 
+            } else if (bookingDuration <= 5) {
+                return 0.95;
+            } else {
+                return 0.10;
+            }
+        }
+
+        // Using a Getter for fuel pass to check weather include or exclude
+        public double getFuelPassCharge() {
+            return FuelPassIncluded ? 1500 : 0;
+        }
     }
+    
     
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         VehicleSelection obj01 = new VehicleSelection();

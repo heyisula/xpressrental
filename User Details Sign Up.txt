@@ -5,3 +5,24 @@ Last Name: Dissanayake
 Phone: 0713303606
 Email: hello.isuladissanayake@gmail.com
 
+Username: heyisula
+Password: thisistestrun
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: testrun
+Password: 1234567890
+First Name: Test
+Last Name: Run
+Phone: 0987654321
+Email: testrun@gmail.com
+
+Username: testrun02
+Password: 0987654321
+First Name: Test
+Last Name: Run
+Phone: 1234567890
+Email: testrun02@gmail.com
+

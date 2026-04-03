@@ -307,68 +307,63 @@ public class CostCalculationVehicle01 extends javax.swing.JFrame {
         }
         else
         {
-             txtFInalChargeForVehicle.setText(""+getInputs());
+             txtFInalChargeForVehicle.setText(""+VehicleBookingBike.calculateFinalCharge(txtBookingDuration.getText(), cmbFuelPass.getSelectedItem()));
         } 
         
     }//GEN-LAST:event_btnCalculateActionPerformed
+    public static class VehicleBookingBike {
+        
+        //Using private fields to encapsulate the data
+        private int bookingDuration;
+        private boolean FuelPassIncluded;
 
+        // Constructor for data inputs
+        public VehicleBookingBike(String bookingDuration, String fuelPass) {
+            this.bookingDuration = Integer.parseInt(bookingDuration);
+            this.FuelPassIncluded = "Include".equals(fuelPass);
+        }
+
+        // Calculating the final charge
+        public static double calculateFinalCharge(String bookingDuration, Object fuelPass) {
+            //Bike's charge
+            int bikeCharge = 1000;
+            boolean isFuelPassIncluded = "Include".equals(fuelPass);
+            
+            VehicleBookingBike booking = new VehicleBookingBike(bookingDuration, fuelPass.toString());
+            double fuelPassCharge = booking.getFuelPassCharge();
+            double bookingDiscount = booking.getBookingDiscount();
+
+            return ((bikeCharge * booking.getBookingDuration()) + fuelPassCharge) * bookingDiscount;
+        }
+
+        // Using a Getter for  get booking duration
+        public int getBookingDuration() {
+            return bookingDuration;
+        }
+
+        // Using a Getter for calculate discount by using the duration
+        public double getBookingDiscount() {
+            if (bookingDuration <= 10) {
+                return 1.0; 
+            } else if (bookingDuration <= 20) {
+                return 0.92;
+            } else {
+                return 0.85;
+            }
+        }
+
+        // Using a Getter for fuel pass to check weather include or exclude
+        public double getFuelPassCharge() {
+            return FuelPassIncluded ? 1500 : 0;
+        }
+    }
+    
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         VehicleSelection obj01 = new VehicleSelection();
         obj01.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnBackActionPerformed
     
-    public double getInputs(){
-        double bookingDuration =0, ChargeForVehicle=0,BookingDiscount =0,FuelPassCharge=0,BikeCharge=1000;
-        String FuelPass = (String) cmbFuelPass.getSelectedItem();
-        
-        try {
-            bookingDuration = Double.parseDouble(txtBookingDuration.getText());
-            if (bookingDuration <= 0) {
-                JOptionPane.showMessageDialog(rootPane, "Please enter a positive number of Days");
-                return 0;
-            }
-        } 
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "Please enter a valid number for booking duration");
-            return 0;
-        }
-        
-        
-        //Calculation
-        if(bookingDuration <= 10 && cmbFuelPass.getSelectedItem().equals("Include")){
-            FuelPassCharge = 1500;
-            BookingDiscount = 1;
-        }
-        else if(bookingDuration <= 10 && cmbFuelPass.getSelectedItem().equals("Exclude")){
-            FuelPassCharge = 0;
-            BookingDiscount = 1;
-        }
-        else if (bookingDuration > 10 &&  bookingDuration <= 20 && cmbFuelPass.getSelectedItem().equals("Include")) {
-            FuelPassCharge = 1500;
-            BookingDiscount = 0.92;
-        }
-        else if(bookingDuration > 10 &&  bookingDuration <= 20 && cmbFuelPass.getSelectedItem().equals("Exclude")){
-            FuelPassCharge = 0;
-            BookingDiscount = 0.92;
-        }
-        else{
-            if (cmbFuelPass.getSelectedItem().equals("Include")){
-                FuelPassCharge = 1500;
-                BookingDiscount = 0.85;
-            }
-            else{
-                FuelPassCharge = 0;
-                BookingDiscount = 0.85;
-            }
-            
-        }
-        
-        
-        
-        ChargeForVehicle = ((BikeCharge*bookingDuration) + FuelPassCharge) * BookingDiscount;
-        return ChargeForVehicle;
-    }
     /**
      * @param args the command line arguments
      */
