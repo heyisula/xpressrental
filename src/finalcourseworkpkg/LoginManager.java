@@ -49,21 +49,16 @@ public class LoginManager {
     public boolean login(String username, String password) {
         if ("admin".equals(username) && "1234".equals(password)) {
             isLoggedIn = true;
-        } 
+        }
+        else{
+            isLoggedIn = false;
+        }
         if (isUserExists(username)) {
             User user = users.get(username);
             return user.getPassword().equals(password);
         }
-        if (users.containsKey(username)) {
-            User user = users.get(username);
-            if (user.getPassword().equals(password)) {
-                isLoggedIn = true;
-                return true;
-            } else {
-                return false;
-            }
-        } 
-        return false;
+         
+        return isLoggedIn;
     }
 
     public boolean isLoggedIn() {

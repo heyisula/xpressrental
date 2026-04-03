@@ -45,19 +45,4 @@ public class User {
     public String getEmail() {
         return email;
     }
-    
-    public void saveToFile(String filePath) {
-        try (FileWriter writer = new FileWriter(filePath, true)) {
-            writer.append("Username: " + username + "\n");
-            writer.append("Password: " + password + "\n");
-            writer.append("First Name: " + firstName + "\n");
-            writer.append("Last Name: " + lastName + "\n");
-            writer.append("Phone: " + phone + "\n");
-            writer.append("Email: " + email + "\n\n");
-
-            JOptionPane.showMessageDialog(null, "File saved successfully!");
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error saving File: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
 }

@@ -42,3 +42,24 @@ Email: hello.isuladissanayake@gmail.com
 
 
 
+Username: anemedenathi
+Password: 098765432
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0123456789
+Email: lkjhgfdsoiuytrewq@gmail.com
+
+Username: heyisula
+Password: 1234
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
+Username: heyisula
+Password: heyisula
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0713303606
+Email: hello.isuladissanayake@gmail.com
+
