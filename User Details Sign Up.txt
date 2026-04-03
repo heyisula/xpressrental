@@ -99,3 +99,11 @@ Last Name: Dissanayake
 Phone: 0713303606
 Email: hello.isuladissanayake@gmail.com
 
+Username: heyisula
+Password: 1234
+Re-cehck Password: 1234
+First Name: Isula
+Last Name: Dissanayake
+Phone: 0987654321
+Email: isula@gmail.com
+
